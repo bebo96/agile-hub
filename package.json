@@ -1,0 +1,27 @@
+{
+  "name": "agile-hub",
+  "version": "1.0.0",
+  "description": "A custom made Kanban project management system that is powered by lots of tech",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bebo96/agile-hub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bebo96/agile-hub/issues"
+  },
+  "homepage": "https://github.com/bebo96/agile-hub#readme",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.4"
+  }
+}

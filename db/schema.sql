@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS hub_db;
+
+CREATE DATABASE hub_db;
