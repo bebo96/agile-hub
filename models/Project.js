@@ -1,50 +1,43 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our Post model
-class Task extends Model {}
+class Project extends Model {}
 
-// create fields/columns for Task model
-Task.init(
+Project.init(
     {
       id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },
-      title: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      task_url: {
+      project_name: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isURL: true
+            len: [4]
         }
+      },
+      project_description: {
+        type: DataTypes.STRING,
+        allowNull: true
       },
       user_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: 'user',
-          key: 'id'
-        }
-      },
-      project_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'project',
           key: 'id'
         }
       }
     },
     {
       sequelize,
+      timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'task'
+      modelName: 'project'
     }
-);
+  );
+  
 
-module.exports = Task;
+module.exports = Project;
