@@ -5,18 +5,33 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const sess = {
+  secret: 'secret', //should be replaced with dotenv variable secret
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // turn on routes
 app.use(routes);
+
+app.use(session(sess));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
