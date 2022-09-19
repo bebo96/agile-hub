@@ -1,16 +1,16 @@
 const User = require("./User");
 const Task = require("./Task");
 const Comment = require("./Comment");
-const Project = requre("./Project");
+const Project = require("./Project");
 
 // create associations
 User.hasMany(Task, {
     foreignKey: 'user_id'
 });
 
-User.hasMany(Project, {
-  foreignKey: 'user_id'
-});
+// User.hasMany(Project, {
+//   foreignKey: 'user_id'
+// });
 
 Project.hasMany(Task, {
   foreignKey: 'project_id'
