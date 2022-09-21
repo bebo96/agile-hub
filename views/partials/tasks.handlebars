@@ -1,11 +1,11 @@
 <div class="tasks">
   {{#each this}}
   <section class="task">
-    <div class="meta">
-      {{user.username}} on {{format_date created_at}}
-    </div>
-    <div class="text">
+    <div class="text task-text">
       {{task_text}}
+    </div>
+    <div class="meta task-user">
+      {{user.username}} on {{format_date created_at}}
     </div>
   </section>
   {{/each}}
