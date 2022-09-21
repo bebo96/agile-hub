@@ -2,6 +2,31 @@
   box-sizing: border-box;
 }
 
+.login-section {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.user-forms {
+  border: 3px red solid;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.login-form {
+  border: 3px green solid;
+  width: 50%;
+}
+
+.signup-form {
+  border: 3px blue solid;
+  width: 50%;
+}
+
 body, html {
   height: 100%;
   padding: 0;

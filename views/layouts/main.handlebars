@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
+  <title>Agile Hub</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
@@ -12,18 +12,18 @@
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">Just Tech News</a>
+        <a href="/">Agile Hub</a>
       </h1>
       <nav>
         {{#if loggedIn}}
         <a href="/dashboard">dashboard</a>
         <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
+        {{!-- {{else}}
+        <a href="/login">login</a> --}}
         {{/if}}
       </nav>
     </header>
-    <main>
+    <main class="mainWindow">
       {{{ body }}}
     </main>
     <footer>
