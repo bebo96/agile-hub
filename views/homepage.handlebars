@@ -1,8 +1,8 @@
-<ol class="post-list">
+<ol class="project-list">
   {{#if loggedIn}}
-    {{#each posts as |post|}}
+    {{#each projects as |project|}}
     <li>
-      {{> post-info post }}
+      {{> project-info project }}
     </li>
     {{/each}}
   {{else}}

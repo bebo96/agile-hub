@@ -1,0 +1,35 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Project
+  </h2>
+  <form class="edit-project-form">
+    <div>
+      <input name="project-title" type="text" value="{{project.title}}" />
+      <span>({{format_url project.customer_name}})</span>
+    </div>
+    <div>
+      {{!-- {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}} --}}
+      |
+      <a href="/project/{{project.id}}">{{project.tasks.length}} {{format_plural "task" project.tasks.length}}</a>
+    </div>
+    <button type="submit">Save project</button>
+    <button type="button" class="delete-project-btn">Delete project</button>
+  </form>
+</article>
+
+<form class="task-form">
+  <div>
+    <textarea name="task-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add task</button>
+  </div>
+</form>
+
+{{> tasks project.tasks}}
+
+<script src="/javascript/edit-project.js"></script>
+<script src="/javascript/delete-project.js"></script>
+<script src="/javascript/task.js"></script>

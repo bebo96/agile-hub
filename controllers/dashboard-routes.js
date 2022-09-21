@@ -1,27 +1,26 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Vote } = require('../models');
+const { Project, User, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for dashboard
+// get all projects for dashboard
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
-  Post.findAll({
+  Project.findAll({
     where: {
       user_id: req.session.user_id
     },
     attributes: [
       'id',
-      'post_url',
+      'customer_name',
       'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'created_at'
     ],
     include: [
       {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        model: Task,
+        attributes: ['id', 'task_text', 'project_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -33,9 +32,9 @@ router.get('/', withAuth, (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+    .then(dbProjectData => {
+      const projects = dbProjectData.map(project => project.get({ plain: true }));
+      res.render('dashboard', { projects, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
@@ -44,18 +43,17 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
+  Project.findByPk(req.params.id, {
     attributes: [
       'id',
-      'post_url',
+      'customer_name',
       'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'created_at'
     ],
     include: [
       {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        model: Task,
+        attributes: ['id', 'task_text', 'project_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -67,12 +65,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      if (dbPostData) {
-        const post = dbPostData.get({ plain: true });
+    .then(dbProjectData => {
+      if (dbProjectData) {
+        const project = dbProjectData.get({ plain: true });
         
-        res.render('edit-post', {
-          post,
+        res.render('edit-project', {
+          project,
           loggedIn: true
         });
       } else {

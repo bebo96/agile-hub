@@ -1,0 +1,19 @@
+{{> project-info project}}
+
+{{#if loggedIn}}
+<form class="task-form">
+  <div>
+    <textarea name="task-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add task</button>
+  </div>
+</form>
+{{/if}}
+
+{{> tasks project.tasks}}
+
+{{#if loggedIn}}
+<script src="/javascript/task.js"></script>
+{{/if}}

@@ -1,41 +1,39 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
+// create our Project model
 class Project extends Model {}
 
+// create fields/columns for Project model
 Project.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-      },
-      project_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [4]
-        }
-      },
-      project_description: {
-        type: DataTypes.STRING,
-        allowNull: true
-      },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'user',
-          key: 'id'
-        }
-      }
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
-    {
-      sequelize,
-      timestamps: false,
-      freezeTableName: true,
-      underscored: true,
-      modelName: 'project'
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    customer_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     }
-  );
+  },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'project'
+  }
+);
+
 module.exports = Project;
