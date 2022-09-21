@@ -4,31 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
+  <title>Agile Hub</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-secondary">
   <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">Just Tech News</a>
-      </h1>
-      <nav>
+    <header class="justify-content-center">
+      
+      <nav class="navbar navbar-light bg-secondary">
+        
+        <a class="btn-no-style navbar-brand " href="/">Agile Hub</a>
+      
         {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
+        <a class="btn-no-style navbar-text" href="/dashboard">My profile</a>
+        <button id="logout" class="btn-no-style navbar-text">logout</button>
+        {{!-- {{else}}
+        <a href="/login">login</a> --}}
         {{/if}}
       </nav>
     </header>
-    <main>
+    <main class="mainWindow">
       {{{ body }}}
     </main>
     <footer>
-      Thanks for visiting!
+      &copy; Made by Abood and Biebz &hearts;
     </footer>
   </div>
   
