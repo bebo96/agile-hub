@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Project, User, Task } = require('../models');
 
-// get all posts for homepage
+// get all projects for homepage
 router.get('/', (req, res) => {
   console.log('======================');
   Project.findAll({
@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// get single post
+// get single project
 router.get('/project/:id', (req, res) => {
   Project.findOne({
     where: {

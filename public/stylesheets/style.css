@@ -173,12 +173,7 @@ main {
   background-color: #ff643d;
 }
 
-.post {
-  margin-bottom: 2%;
-  line-height: 150%;
-}
-
-.post .title span {
+.title span {
   font-style: italic;
   font-size: 90%;
   color: #7d7d7d;
@@ -209,18 +204,10 @@ main {
   font-size: 25px;
 }
 
-.comment .meta {
+.meta {
   font-size: 90%;
   margin-bottom: .5%;
   opacity: .6;
-}
-
-.new-post-form input {
-  width: 300px;
-}
-
-.edit-post-form {
-  margin-bottom: 5%;
 }
 
 footer {
