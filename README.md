@@ -14,7 +14,7 @@ A webapp designed to improve project management, by allowing users to create pro
 https://bebo96.github.io/agile-hub/
 
 ## Heroku Deployment
-https://shielded-brook-97560.herokuapp.com/`
+https://shielded-brook-97560.herokuapp.com/
 
 ## Screenshot:
 ![Alt text](./public/agile-hub.png?raw=true "Agile Hub Icon")
